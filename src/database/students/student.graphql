@@ -1,0 +1,29 @@
+type Query{
+	getStudents: [Student]
+	student(id: String!): Student
+}
+
+type Mutation{
+	createStudent(
+		createStudentInput: CreateStudentInput
+	): Student
+}
+
+type Subscription{
+	studentCreated: Student
+}
+
+type Student{
+	name: String
+	birthday: Int
+}
+
+input CreateStudentInput{
+	name: String
+	age: Int
+}
+schema{
+	query: Query,
+	mutation: Mutation,
+	subscription: Subscription
+}
